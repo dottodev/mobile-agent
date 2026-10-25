@@ -1,0 +1,12 @@
+# build output
+/mobile-agent
+/bin/
+/dist/
+
+# local config and sessions
+mobile-agent.json
+*.session.json
+
+# editor/OS noise
+.DS_Store
+*.swp
