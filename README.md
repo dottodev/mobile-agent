@@ -29,7 +29,7 @@ GOOS=android GOARCH=arm64 CGO_ENABLED=0 go build -buildmode=pie -o mobile-agent 
 
 ```sh
 pkg install golang git
-git clone <repo>
+git clone https://github.com/dottodev/mobile-agent
 cd mobile-agent
 sh scripts/install.sh
 ```
