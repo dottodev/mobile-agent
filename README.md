@@ -34,7 +34,22 @@ cd mobile-agent
 sh scripts/install.sh
 ```
 
-The install script builds the binary into `~/.local/bin/mobile-agent`, copies prompt stacks into `~/.config/mobile-agent/prompts`, and writes a default config to `~/.config/mobile-agent/config.json` with mode `0600`.
+The install script builds the binary into `$PREFIX/bin/mobile-agent` (falling back to `~/bin/mobile-agent`), copies prompt stacks into `~/.config/mobile-agent/prompts`, and writes a default config to `~/.config/mobile-agent/config.json` with mode `0600`.
+
+If the install directory is not on your `PATH`, the script prints the exact commands to fix it:
+
+```sh
+export PATH="$HOME/bin:$PATH"
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+hash -r
+```
+
+## Troubleshooting
+
+- `mobile-agent: command not found` — the install directory is not on `PATH`; run the `export PATH=...` line above, then `hash -r`.
+- `go: not found` — install the toolchain first with `pkg install golang`.
+- Run the binary directly if needed: `"$HOME/bin/mobile-agent" --help`.
 
 ## Configure
 
