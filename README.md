@@ -45,6 +45,24 @@ source ~/.bashrc
 hash -r
 ```
 
+## Install without Go
+
+Prebuilt binaries are attached to each release. On Termux (arm64):
+
+```sh
+pkg install curl tar
+mkdir -p "$HOME/bin"
+curl -fsSL -o /tmp/mobile-agent.tar.gz \
+  https://github.com/dottodev/mobile-agent/releases/latest/download/mobile-agent-android-arm64.tar.gz
+tar -xzf /tmp/mobile-agent.tar.gz -C /tmp mobile-agent-android-arm64
+mv /tmp/mobile-agent-android-arm64 "$HOME/bin/mobile-agent"
+chmod +x "$HOME/bin/mobile-agent"
+export PATH="$HOME/bin:$PATH"
+mobile-agent --help
+```
+
+Check your architecture with `uname -m` and pick `mobile-agent-android-arm64.tar.gz` (arm64/aarch64) or `mobile-agent-linux-amd64.tar.gz` (x86_64).
+
 ## Troubleshooting
 
 - `mobile-agent: command not found` — the install directory is not on `PATH`; run the `export PATH=...` line above, then `hash -r`.
